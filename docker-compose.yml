@@ -1,12 +1,13 @@
 version: '2'
 services:
   dokuwiki:
-    image: 'bitnami/dokuwiki:0'
+    build: 0/debian-9/
+    image: mydokuwiki
+    container_name: mydokuwiki
     ports:
-      - '80:80'
-      - '443:443'
+      - '127.0.0.1:80:80'
+      - '127.0.0.1:443:443'
     volumes:
-      - 'dokuwiki_data:/bitnami'
-volumes:
-  dokuwiki_data:
-    driver: local
+      - /home/maik/data:/bitnami
+    restart: always
+
